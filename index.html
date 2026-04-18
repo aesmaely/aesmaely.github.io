@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aysan Esmaely — Urban Planner & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  :root {
+    --navy: #1A3A5C;
+    --accent: #2E6B9E;
+    --gold: #C8902A;
+    --cream: #FAF8F4;
+    --warm-white: #FEFCF8;
+    --text: #2C2C2C;
+    --muted: #7A7A7A;
+    --border: #E2DDD6;
+    --light-bg: #F2EFE9;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1.5px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 6vw, 5.2rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 2.8rem;
+  }
+  .chip {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text);
+    background: var(--warm-white);
+    letter-spacing: 0.02em;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+
+  .hero-right {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: flex-end;
+  }
+
+  /* Decorative geometric pattern on hero right */
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 70% 20%, rgba(200,144,42,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(46,107,158,0.3) 0%, transparent 50%);
+  }
+
+  .hero-right-inner {
+    position: relative; z-index: 1;
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2.5rem;
+  }
+  .stat-cell {
+    padding: 2rem 1.5rem;
+    background: rgba(26,58,92,0.6);
+  }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
+
+  .hero-socials {
+    display: flex; gap: 1rem;
+  }
+  .social-link {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* Decorative line across */
+  .section-divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: 6rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1.5px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 3.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ── RESEARCH INTERESTS ── */
+  #interests { background: var(--warm-white); }
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .interest-card {
+    padding: 1.8rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--cream);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .interest-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .interest-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(26,58,92,0.08); }
+  .interest-card:hover::after { transform: scaleX(1); }
+  .interest-icon {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .interest-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .interest-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--cream); }
+  .edu-timeline { position: relative; }
+  .edu-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .edu-item {
+    padding-left: 2.2rem;
+    position: relative;
+    margin-bottom: 2.8rem;
+  }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.15rem;
+  }
+  .edu-institution {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .edu-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .edu-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  /* ── RESEARCH ── */
+  #research { background: var(--warm-white); }
+  .research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .research-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+  }
+  .research-card:hover {
+    box-shadow: 0 8px 28px rgba(26,58,92,0.08);
+    transform: translateY(-2px);
+  }
+  .research-sponsor {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .research-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .research-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .research-bullets li {
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+    line-height: 1.55;
+  }
+  .research-bullets li::before {
+    content: '–';
+    position: absolute; left: 0;
+    color: var(--accent);
+  }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: var(--cream); }
+  .pub-group { margin-bottom: 2.8rem; }
+  .pub-group-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    color: var(--accent);
+    border-left: 3px solid var(--gold);
+    padding-left: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .pub-item {
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--warm-white);
+    margin-bottom: 0.8rem;
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .pub-item:hover { border-color: var(--accent); }
+  .pub-item .pub-authors { color: var(--muted); }
+  .pub-item .pub-title { font-style: italic; }
+  .pub-item .pub-journal { color: var(--accent); font-weight: 500; }
+  .pub-item a { color: var(--accent); text-decoration: none; }
+  .pub-item a:hover { text-decoration: underline; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--warm-white); }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--cream);
+    margin-bottom: 1.2rem;
+    transition: all 0.3s;
+  }
+  .exp-item:hover { box-shadow: 0 6px 24px rgba(26,58,92,0.07); border-color: rgba(26,58,92,0.15); }
+  .exp-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .exp-org {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .exp-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+    text-align: right;
+    padding-top: 0.3rem;
+  }
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-bullets li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '•';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.9rem;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--navy); color: #fff; }
+  #skills .section-title { color: #fff; }
+  #skills .section-title em { color: var(--gold); }
+  #skills .section-label { color: rgba(200,144,42,0.9); }
+  #skills .section-label::before { background: var(--gold); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .skill-block {
+    padding: 2rem;
+    background: rgba(26,58,92,0.5);
+  }
+  .skill-block h3 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ── AWARDS ── */
+  #awards { background: var(--cream); }
+  .awards-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .award-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--warm-white);
+    transition: all 0.2s;
+  }
+  .award-item:hover { border-color: var(--gold); background: #fff; }
+  .award-name {
+    font-size: 0.85rem;
+    color: var(--text);
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .award-name::before {
+    content: '★';
+    color: var(--gold);
+    font-size: 0.65rem;
+  }
+  .award-year {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 3rem;
+  }
+  footer .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+  footer p { font-size: 0.78rem; line-height: 1.8; }
+  footer a { color: rgba(200,144,42,0.8); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 2rem 3rem; }
+    .hero-right { min-height: 340px; }
+    .interests-grid { grid-template-columns: 1fr 1fr; }
+    .research-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-date { text-align: left; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .container { padding: 0 1.5rem; }
+  }
+
+  @media (max-width: 560px) {
+    .interests-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: 2.8rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Aysan Esmaely</div>
+  <ul class="nav-links">
+    <li><a href="#interests">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="mailto:aesmaely2@huskers.unl.edu">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-label">Urban Planner &amp; Researcher</div>
+    <h1 class="hero-name">Aysan<br /><em>Esmaely</em></h1>
+    <p class="hero-tagline">
+      Studying how communities move, access care, and navigate systems that shape daily life — with a focus on equity, vulnerable populations, and the planning policies that can close the gap.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">Transportation Equity</span>
+      <span class="chip">Rural Accessibility</span>
+      <span class="chip">GIS &amp; Spatial Analysis</span>
+      <span class="chip">Qualitative Methods</span>
+      <span class="chip">AI in Transportation</span>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:aesmaely2@huskers.unl.edu" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in Touch</a>
+      <a href="https://scholar.google.com/citations?user=Mc7DfmEAAAAJ&hl=en&oi=ao" target="_blank" class="btn btn-outline"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Publications &amp; papers in progress</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Conference presentations</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Awards &amp; travel grants</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Countries of professional experience</div>
+        </div>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:aesmaely2@huskers.unl.edu" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/aysan-esmaely-b6b86824b" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=Mc7DfmEAAAAJ&hl=en&oi=ao" target="_blank" class="social-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RESEARCH INTERESTS -->
+<section id="interests">
+  <div class="container">
+    <div class="section-label fade-in">Focus Areas</div>
+    <h2 class="section-title fade-in">Research <em>Interests</em></h2>
+    <div class="interests-grid">
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-bus"></i></div>
+        <h3>Transportation Equity</h3>
+        <p>Examining barriers that limit mobility for vulnerable and underserved populations across urban and rural contexts.</p>
+      </div>
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Transportation Policy Analysis</h3>
+        <p>Evaluating how national and regional planning policies translate—or fail to translate—into local transportation outcomes.</p>
+      </div>
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>Transportation &amp; Public Health</h3>
+        <p>Investigating the intersection of mobility limitations and healthcare access, including telehealth and vision care contexts.</p>
+      </div>
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>Spatial Analysis &amp; GIS</h3>
+        <p>Using GIS tools to map infrastructure, delineate boundaries, and reveal spatial patterns in community planning challenges.</p>
+      </div>
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI in Transportation</h3>
+        <p>Exploring machine learning and AI-assisted qualitative methods to advance transportation research and planning practice.</p>
+      </div>
+      <div class="interest-card fade-in">
+        <div class="interest-icon"><i class="fas fa-home"></i></div>
+        <h3>Informal Settlements</h3>
+        <p>Drawing on field experience in slum upgrading to inform equity-centered planning in communities with limited formal infrastructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label fade-in">Academic Background</div>
+    <h2 class="section-title fade-in"><em>Education</em></h2>
+    <div class="edu-timeline">
+      <div class="edu-item fade-in">
+        <div class="edu-degree">M.Sc. in Community and Regional Planning</div>
+        <div class="edu-institution">University of Nebraska–Lincoln</div>
+        <div class="edu-date">2024 – December 2025</div>
+        <div class="edu-note">Thesis: <em>Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska</em><br />Advisor: Dr. Abigail Cochran</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">M.Sc. in Urban Planning <span style="font-weight:300;font-size:0.9em">(Coursework Completed)</span></div>
+        <div class="edu-institution">Mazandaran University, Iran</div>
+        <div class="edu-date">2020 – 2022</div>
+        <div class="edu-note">Completed all required coursework; departure from Iran due to immigration circumstances prevented thesis defense. Transcript available upon request.</div>
+      </div>
+      <div class="edu-item fade-in">
+        <div class="edu-degree">B.Sc. in Urbanism Engineering</div>
+        <div class="edu-institution">Payam Noor University, Iran</div>
+        <div class="edu-date">2017</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH PROJECTS -->
+<section id="research">
+  <div class="container">
+    <div class="section-label fade-in">Active &amp; Past Projects</div>
+    <h2 class="section-title fade-in">Research <em>Projects</em></h2>
+    <div class="research-grid">
+      <div class="research-card fade-in">
+        <div class="research-sponsor">MATC-TSE / U.S. DOT</div>
+        <h3>Transportation Barriers to Vision Care for the Visually Impaired</h3>
+        <ul class="research-bullets">
+          <li>Analyzed qualitative interview data from individuals with low vision; contributed to manuscript preparation.</li>
+          <li>Conducted in-depth interviews with healthcare providers; performed thematic analysis for a separate manuscript.</li>
+        </ul>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-sponsor">SENDD / Nebraska Dept. of Economic Development</div>
+        <h3>Southeast Nebraska Infrastructure Inventory</h3>
+        <ul class="research-bullets">
+          <li>Co-designed and deployed a survey targeting city clerks and water operators across 15 counties.</li>
+          <li>Participated in Evaluation &amp; Selection Committee for Regional Planning Consultant RFP.</li>
+        </ul>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-sponsor">SENDD / Infrastructure Investment and Jobs Act</div>
+        <h3>Telehealth &amp; Transportation Barriers in Rural Nebraska</h3>
+        <ul class="research-bullets">
+          <li>Independently designed study and conducted interviews with rural residents and healthcare providers.</li>
+          <li>Analyzed qualitative data on broadband-enabled telehealth and transportation accessibility.</li>
+        </ul>
+      </div>
+      <div class="research-card fade-in">
+        <div class="research-sponsor">UNL MCRP Studio</div>
+        <h3>City of Ogallala Comprehensive Plan Update</h3>
+        <ul class="research-bullets">
+          <li>Led transportation section: background research, data collection, GIS mapping, analysis, and recommendations.</li>
+          <li>Conducted community surveys, stakeholder interviews, and coordinated public open house at City Hall.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label fade-in">Scholarly Output</div>
+    <h2 class="section-title fade-in"><em>Publications</em></h2>
+
+    <div class="pub-group fade-in">
+      <div class="pub-group-label">Published</div>
+      <div class="pub-item">
+        Nelson-Forcade, C., <strong>Esmaely, A.</strong>, Shepherd, J.D., &amp; Cochran, A.L. (2025). Clinicians' perspectives on transportation barriers to low vision care in the rural Midwest. <span class="pub-journal">Findings</span>. <a href="https://doi.org/10.32866/001c.129899" target="_blank">doi:10.32866/001c.129899</a>
+      </div>
+      <div class="pub-item">
+        <strong>Esmaely, A.</strong> (2025). <em>Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska.</em> M.Sc. Thesis. University of Nebraska–Lincoln. <a href="https://digitalcommons.unl.edu" target="_blank">digitalcommons.unl.edu</a>
+      </div>
+    </div>
+
+    <div class="pub-group fade-in">
+      <div class="pub-group-label">Under Review</div>
+      <div class="pub-item">
+        <strong>Esmaely, A.</strong>, Nelson-Fourcade, C., Shepherd, J.D., &amp; Cochran, A.L. Addressing transportation barriers to low vision care among individuals with visual impairments in Nebraska.
+      </div>
+    </div>
+
+    <div class="pub-group fade-in">
+      <div class="pub-group-label">In Preparation</div>
+      <div class="pub-item">
+        <strong>Esmaely, A.</strong>, &amp; Cochran, A.L. Transportation practitioners' reflections on addressing transportation barriers for vulnerable populations in Nebraska.
+      </div>
+      <div class="pub-item">
+        <strong>Esmaely, A.</strong>, Cochran, A.L., Bliss, T., &amp; Borchers-Williams, O. The role of telehealth in overcoming transportation barriers in accessing healthcare in Nebraska.
+      </div>
+      <div class="pub-item">
+        <strong>Esmaely, A.</strong> AI agents in qualitative research: Examining machine-generated thematic analysis vs. human coding.
+      </div>
+    </div>
+
+    <!-- Conference Presentations -->
+    <div class="section-label fade-in" style="margin-top:3rem;">Conference Presentations</div>
+    <div class="pub-group fade-in" style="margin-top:0.8rem;">
+      <div class="pub-group-label">Presented</div>
+      <div class="pub-item" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
+        <div><strong>Esmaely, A.</strong>, et al. Addressing transportation barriers to low vision care among individuals with visual impairments in Nebraska. <em>Nebraska APA Chapter Conference</em></div>
+        <div style="font-size:0.78rem;color:var(--muted);white-space:nowrap;">Mar. 2025</div>
+      </div>
+      <div class="pub-item" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
+        <div><strong>Esmaely, A.</strong>, et al. Addressing transportation barriers to low vision care. <em>ACSP Annual Conference, Seattle, WA</em></div>
+        <div style="font-size:0.78rem;color:var(--muted);white-space:nowrap;">Nov. 2024</div>
+      </div>
+      <div class="pub-item" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;">
+        <div>Cochran, A.L., <strong>Esmaely, A.</strong>, et al. Understanding and addressing transportation barriers to low vision care in Nebraska. <em>UNL Transportation Engineering Seminar Series, Lincoln, NE</em></div>
+        <div style="font-size:0.78rem;color:var(--muted);white-space:nowrap;">Oct. 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label fade-in">Career History</div>
+    <h2 class="section-title fade-in">Professional <em>Experience</em></h2>
+
+    <div class="exp-item fade-in">
+      <div>
+        <div class="exp-role">Community Planner</div>
+        <div class="exp-org">Southeast Nebraska Development District (SENDD) — Lincoln, NE</div>
+        <ul class="exp-bullets">
+          <li>Authored and submitted the ECCBG grant for the City of Fairbury (~$100,000), managing the full grant writing process.</li>
+          <li>Produced GIS maps and spatial analyses for NEPA environmental review using ArcGIS.</li>
+          <li>Supported environmental review processes and project scoping for infrastructure projects under NEPA compliance.</li>
+          <li>Assisted communities with capital improvement planning, comprehensive plan updates, and stakeholder engagement.</li>
+        </ul>
+      </div>
+      <div class="exp-date">Jan. 2026 – Present</div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div>
+        <div class="exp-role">Graduate Research Assistant</div>
+        <div class="exp-org">University of Nebraska–Lincoln</div>
+        <ul class="exp-bullets">
+          <li>Conducted qualitative research across multiple U.S. DOT and state-funded projects on transportation barriers.</li>
+          <li>Led interviews with healthcare providers, transportation specialists, and rural residents across Nebraska.</li>
+          <li>Applied thematic analysis using Dedoose; contributed to multiple manuscript preparations.</li>
+        </ul>
+      </div>
+      <div class="exp-date">2024 – 2025</div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div>
+        <div class="exp-role">Community Outreach Coordinator (Intern)</div>
+        <div class="exp-org">Southeast Nebraska Development District (SENDD)</div>
+        <ul class="exp-bullets">
+          <li>Researched telehealth's role in overcoming transportation barriers in rural Nebraska.</li>
+          <li>Contributed to the Capital Improvement Plan for the City of Waverly.</li>
+          <li>Wrote planning analysis and recommendations for a Comprehensive Plan update for Pawnee City.</li>
+        </ul>
+      </div>
+      <div class="exp-date">Summer 2024</div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div>
+        <div class="exp-role">Planner Facilitator, Slum Upgrading Program</div>
+        <div class="exp-org">Gorgan, Golestan Province, Iran</div>
+        <ul class="exp-bullets">
+          <li>Led GIS-based mapping to update and formalize city boundary lines, incorporating informal settlement areas.</li>
+          <li>Built and maintained a comprehensive GIS database of informal settlement conditions.</li>
+          <li>Conducted community engagement to identify and prioritize local challenges; developed multi-stakeholder action plans.</li>
+        </ul>
+      </div>
+      <div class="exp-date">2017 – 2020</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label fade-in">Toolkit</div>
+    <h2 class="section-title fade-in">Technical <em>Skills</em></h2>
+    <div class="skills-grid">
+      <div class="skill-block fade-in">
+        <h3>GIS &amp; Spatial</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">ArcGIS</span>
+          <span class="skill-tag">Spatial Analysis</span>
+          <span class="skill-tag">Boundary Delineation</span>
+          <span class="skill-tag">GIS Database Mgmt</span>
+          <span class="skill-tag">NEPA Mapping</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in">
+        <h3>Quantitative Analysis</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SPSS</span>
+          <span class="skill-tag">Data Visualization</span>
+          <span class="skill-tag">Survey Design</span>
+          <span class="skill-tag">Lasso</span>
+          <span class="skill-tag">SurveyMonkey</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in">
+        <h3>Qualitative Methods</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Thematic Coding</span>
+          <span class="skill-tag">In-Depth Interviews</span>
+          <span class="skill-tag">Dedoose</span>
+          <span class="skill-tag">Reflexive Analysis</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in">
+        <h3>Planning Practice</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Grant Writing</span>
+          <span class="skill-tag">NEPA Compliance</span>
+          <span class="skill-tag">Comp Plan Updates</span>
+          <span class="skill-tag">Community Engagement</span>
+          <span class="skill-tag">AutoCAD</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in">
+        <h3>Currently Learning</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Spatial Modeling</span>
+          <span class="skill-tag">GeoAI</span>
+        </div>
+      </div>
+      <div class="skill-block fade-in">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Turkmen — Native</span>
+          <span class="skill-tag">Farsi — Native</span>
+          <span class="skill-tag">Turkish — Fluent</span>
+          <span class="skill-tag">English — Advanced</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-label fade-in">Recognition</div>
+    <h2 class="section-title fade-in">Awards &amp; <em>Honors</em></h2>
+    <div class="awards-list">
+      <div class="award-item fade-in">
+        <div class="award-name">Student Scholarship Award for Outstanding Achievement — Nebraska APA Chapter</div>
+        <div class="award-year">2025</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-name">Student Travel Award — American Planning Association (NPC, Denver)</div>
+        <div class="award-year">2025</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-name">Graduate Student Travel Award — TRB Annual Conference, Washington D.C.</div>
+        <div class="award-year">2025</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-name">Nebraska Transportation Center Award — TRB Annual Conference</div>
+        <div class="award-year">2024</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-name">Graduate Student Travel Award — ACSP Annual Conference, Seattle</div>
+        <div class="award-year">2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Aysan Esmaely</div>
+  <p>
+    Community Planner &amp; Researcher · Lincoln, Nebraska<br />
+    <a href="mailto:aesmaely2@huskers.unl.edu">aesmaely2@huskers.unl.edu</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/aysan-esmaely-b6b86824b" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://scholar.google.com/citations?user=Mc7DfmEAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+  </p>
+  <p style="margin-top:1rem;font-size:0.72rem;">Last updated: April 2026</p>
+</footer>
+
+<script>
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (Array.from(entry.target.parentElement.children).indexOf(entry.target) % 6));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
