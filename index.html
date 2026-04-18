@@ -425,7 +425,131 @@ footer {
 footer a { color:rgba(200,144,42,.6); text-decoration:none; }
 footer a:hover { color:var(--gold); }
 
-/* ── FADE IN ─────────────────────────────────────────── */
+/* ── CONFERENCE TABS & GALLERY ───────────────────────── */
+.conf-tabs {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.conf-tab {
+  font-size: 0.73rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.45rem 1.1rem;
+  border-radius: 3px; border: 1.5px solid var(--border);
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: all 0.2s;
+}
+.conf-tab:hover { border-color: var(--navy); color: var(--navy); }
+.conf-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.conf-panel { display: none; }
+.conf-panel.active { display: block; }
+
+.conf-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2rem;
+  align-items: start;
+}
+.conf-photos {
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+.conf-photos-two {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem;
+}
+.conf-img {
+  width: 100%; border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.conf-img:hover { transform: scale(1.02); }
+.conf-img-main { max-height: 280px; }
+.conf-img-secondary { max-height: 160px; }
+.conf-no-photo {
+  background: var(--light);
+  border: 2px dashed var(--border);
+  border-radius: 6px;
+  height: 200px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.6rem;
+  color: var(--muted); font-size: 0.8rem;
+}
+.conf-no-photo i { font-size: 2rem; color: var(--border); }
+
+.conf-event-label {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--gold); font-weight: 500; margin-bottom: 0.4rem;
+}
+.conf-event-title {
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 0.5rem; line-height: 1.25;
+}
+.conf-event-date {
+  font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.conf-event-desc {
+  font-size: 0.84rem; color: #555; line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.conf-paper {
+  background: var(--warm);
+  border-left: 3px solid var(--gold);
+  padding: 0.9rem 1rem;
+  border-radius: 0 4px 4px 0;
+}
+.conf-paper-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--gold); font-weight: 500; margin-bottom: 0.3rem;
+}
+.conf-paper-title {
+  font-size: 0.83rem; font-weight: 500; color: var(--navy);
+  margin-bottom: 0.2rem; line-height: 1.4;
+}
+.conf-paper-authors { font-size: 0.76rem; color: var(--muted); }
+
+/* ── PROJECT PHOTO GRID ──────────────────────────────── */
+.proj-card-photo { grid-column: 1 / -1; }
+.proj-photo-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.8rem 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.proj-photo {
+  width: 100%; height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.proj-photo:hover { transform: scale(1.03); }
+
+/* ── LIGHTBOX ────────────────────────────────────────── */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.92);
+  align-items: center; justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 88vh;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute; top: 1.5rem; right: 2rem;
+  color: #fff; font-size: 2rem; cursor: pointer;
+  background: none; border: none; line-height: 1;
+}
+
+/* ── END GALLERY CSS ─────────────────────────────────── */
 .fi { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
 .fi.vis { opacity:1; transform:translateY(0); }
 .fi-delay-1 { transition-delay:.08s; }
@@ -726,7 +850,157 @@ footer a:hover { color:var(--gold); }
         </div>
       </div>
 
+  <!-- CONFERENCES -->
+  <section id="conferences" class="section section-alt fi">
+    <div class="sec-label">Presentations</div>
+    <h2 class="sec-title">Conference <em>Presentations</em></h2>
+
+    <!-- Tab buttons -->
+    <div class="conf-tabs">
+      <button class="conf-tab active" data-tab="trb">TRB 2025</button>
+      <button class="conf-tab" data-tab="npc">NPC Denver 2025</button>
+      <button class="conf-tab" data-tab="acsp">ACSP Seattle 2024</button>
+      <button class="conf-tab" data-tab="nebapa">Nebraska APA 2025</button>
+      <button class="conf-tab" data-tab="graduation">Graduation</button>
     </div>
+
+    <!-- TRB -->
+    <div class="conf-panel active" id="tab-trb">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="TRB Conference.jpg" alt="TRB Annual Conference 2025" class="conf-img conf-img-main" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">TRB Annual Meeting · Washington D.C.</div>
+          <h3 class="conf-event-title">Transportation Research Board Annual Conference</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> January 2025</p>
+          <p class="conf-event-desc">Presented research on addressing transportation barriers to low vision care among individuals with visual impairments in Nebraska. Attended as a recipient of the Graduate Student Travel Award and the Nebraska Transportation Center Award.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Presentation</div>
+            <div class="conf-paper-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NPC Denver -->
+    <div class="conf-panel" id="tab-npc">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="NPC Conference.jpg" alt="NPC Conference Denver 2025" class="conf-img conf-img-main"
+               onerror="this.src='NPC Conference.HEIC'" />
+          <img src="NPC Conference1.jpg" alt="NPC Conference Denver 2025" class="conf-img conf-img-secondary"
+               onerror="this.src='NPC Conference1.HEIC'" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">APA National Planning Conference · Denver, CO</div>
+          <h3 class="conf-event-title">American Planning Association National Conference</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> 2025</p>
+          <p class="conf-event-desc">Attended the APA National Planning Conference in Denver as a recipient of the APA Student Travel Award for Outstanding Achievement from the Nebraska APA Chapter.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Award</div>
+            <div class="conf-paper-title">APA Student Travel Award · Nebraska APA Student Scholarship for Outstanding Achievement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACSP -->
+    <div class="conf-panel" id="tab-acsp">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="ACSP_conference.jpg" alt="ACSP Annual Conference Seattle 2024" class="conf-img conf-img-main"
+               onerror="this.src='ACSP_conference.HEIC'" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">ACSP Annual Conference · Seattle, WA</div>
+          <h3 class="conf-event-title">Association of Collegiate Schools of Planning Annual Conference</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> November 2024</p>
+          <p class="conf-event-desc">Presented research on transportation barriers to low vision care. Attended as a recipient of the ACSP Graduate Student Travel Award.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Presentation</div>
+            <div class="conf-paper-title">Addressing Transportation Barriers to Low Vision Care</div>
+            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nebraska APA -->
+    <div class="conf-panel" id="tab-nebapa">
+      <div class="conf-layout">
+        <div class="conf-photos conf-photos-placeholder">
+          <div class="conf-no-photo"><i class="fas fa-image"></i><span>Photo coming soon</span></div>
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">Nebraska APA Chapter Conference · Kearney, NE</div>
+          <h3 class="conf-event-title">Nebraska Chapter — American Planning Association Conference</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> March 2025</p>
+          <p class="conf-event-desc">Presented research on transportation barriers to low vision care among individuals with visual impairments in Nebraska. Received the Student Scholarship Award for Outstanding Achievement from the Nebraska APA Chapter.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Presentation</div>
+            <div class="conf-paper-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graduation -->
+    <div class="conf-panel" id="tab-graduation">
+      <div class="conf-layout">
+        <div class="conf-photos conf-photos-two">
+          <img src="Graduation.jpg" alt="Graduation UNL" class="conf-img conf-img-main"
+               onerror="this.src='Graduation.HEIC'" />
+          <img src="Graduation 1.jpg" alt="Graduation UNL" class="conf-img conf-img-secondary"
+               onerror="this.src='Graduation 1.HEIC'" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">University of Nebraska–Lincoln</div>
+          <h3 class="conf-event-title">M.Sc. Graduation — Community &amp; Regional Planning</h3>
+          <p class="conf-event-date"><i class="fas fa-graduation-cap"></i> December 2025</p>
+          <p class="conf-event-desc">Graduated with a Master of Science in Community and Regional Planning from the University of Nebraska–Lincoln. Thesis: <em>Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska.</em> Advisor: Dr. Abigail Cochran.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Thesis</div>
+            <div class="conf-paper-title">Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A. · UNL Digital Commons, 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Existing presentation list -->
+    <div style="margin-top:3rem;">
+      <div class="sec-label" style="margin-bottom:1rem;">All Presentations</div>
+      <div class="pub-list">
+        <div class="pub-item fi">
+          <div class="pub-num">C1</div>
+          <div class="pub-content">
+            <div class="pub-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
+            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+            <div class="pub-venue"><span class="pub-venue-name">Nebraska APA Chapter Conference</span> <span class="pub-year">· Mar. 2025</span></div>
+          </div>
+        </div>
+        <div class="pub-item fi">
+          <div class="pub-num">C2</div>
+          <div class="pub-content">
+            <div class="pub-title">Addressing Transportation Barriers to Low Vision Care</div>
+            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+            <div class="pub-venue"><span class="pub-venue-name">ACSP Annual Conference</span> <span class="pub-year">· Nov. 2024 · Seattle, WA</span></div>
+          </div>
+        </div>
+        <div class="pub-item fi">
+          <div class="pub-num">C3</div>
+          <div class="pub-content">
+            <div class="pub-title">Understanding and Addressing Transportation Barriers to Low Vision Care in Nebraska</div>
+            <div class="pub-authors">Cochran, A.L., <strong>Esmaely, A.</strong>, Nelson-Forcade, C., &amp; Choi, I.</div>
+            <div class="pub-venue"><span class="pub-venue-name">UNL Transportation Engineering Seminar Series</span> <span class="pub-year">· Oct. 2024 · Lincoln, NE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- RESEARCH PROJECTS -->
   <section id="research" class="section fi">
@@ -761,9 +1035,16 @@ footer a:hover { color:var(--gold); }
         </ul>
       </div>
 
-      <div class="proj-card fi fi-delay-2">
+      <div class="proj-card fi fi-delay-2 proj-card-photo">
         <div class="proj-tag">UNL MCRP Studio</div>
         <h3>City of Ogallala Comprehensive Plan Update</h3>
+        <div class="proj-photo-grid">
+          <img src="Ogallala.jpg" alt="Ogallala project" class="proj-photo" />
+          <img src="Ogallala1.jpg" alt="Ogallala project" class="proj-photo"
+               onerror="this.src='Ogallala1.HEIC';this.onerror=null;" />
+          <img src="Ogallala2.jpg" alt="Ogallala project" class="proj-photo"
+               onerror="this.src='Ogallala2.HEIC';this.onerror=null;" />
+        </div>
         <ul class="proj-bullets">
           <li>Led transportation section: background research, data collection, GIS mapping, analysis, and recommendations.</li>
           <li>Coordinated community surveys, stakeholder interviews, and public open house at City Hall.</li>
@@ -944,7 +1225,32 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
   });
 });
 
-// ── Mobile hamburger ──────────────────────────────────
+// ── Conference tabs ───────────────────────────────────
+document.querySelectorAll('.conf-tab').forEach(tab => {
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.conf-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.conf-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+  });
+});
+
+// ── Lightbox ──────────────────────────────────────────
+const lb = document.createElement('div');
+lb.className = 'lightbox';
+lb.innerHTML = '<button class="lightbox-close">&times;</button><img src="" alt="" />';
+document.body.appendChild(lb);
+const lbImg = lb.querySelector('img');
+lb.querySelector('.lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
+lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') lb.classList.remove('open'); });
+document.querySelectorAll('.conf-img, .proj-photo').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    lbImg.src = img.src;
+    lb.classList.add('open');
+  });
+});
 document.getElementById('ham').addEventListener('click', () => {
   document.getElementById('sidebar').classList.toggle('open');
 });
