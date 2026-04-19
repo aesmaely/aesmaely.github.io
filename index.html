@@ -556,6 +556,40 @@ footer a:hover { color:var(--gold); }
 }
 
 /* ── END GALLERY CSS ─────────────────────────────────── */
+
+/* ── CONFERENCE BADGES ───────────────────────────────── */
+.conf-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.3rem 0.8rem;
+  border-radius: 20px; margin-bottom: 1rem;
+}
+.conf-badge-presenter { background: rgba(26,58,92,.1); color: var(--navy); border: 1px solid rgba(26,58,92,.2); }
+.conf-badge-attendee  { background: rgba(200,144,42,.1); color: #9a6e1a; border: 1px solid rgba(200,144,42,.25); }
+
+/* ── MILESTONE GRID ──────────────────────────────────── */
+.milestone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+.milestone-card {
+  border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden; background: var(--warm);
+  transition: all 0.3s;
+}
+.milestone-card:hover { box-shadow: 0 10px 30px rgba(26,58,92,.1); transform: translateY(-3px); }
+.milestone-photo-wrap {
+  width: 100%; height: 280px; overflow: hidden;
+}
+.milestone-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform 0.4s;
+  cursor: zoom-in;
+}
+.milestone-card:hover .milestone-photo { transform: scale(1.03); }
+.milestone-info { padding: 1.6rem; }
 .fi { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
 .fi.vis { opacity:1; transform:translateY(0); }
 .fi-delay-1 { transition-delay:.08s; }
@@ -607,6 +641,7 @@ footer a:hover { color:var(--gold); }
       <li><a href="#news"         class="nav-link">News</a></li>
       <li><a href="#publications" class="nav-link">Publications</a></li>
       <li><a href="#conferences"  class="nav-link">Conferences</a></li>
+      <li><a href="#milestones"   class="nav-link">Milestones</a></li>
       <li><a href="#research"     class="nav-link">Projects</a></li>
       <li><a href="#experience"   class="nav-link">Experience</a></li>
       <li><a href="#awards"       class="nav-link">Awards</a></li>
@@ -825,33 +860,227 @@ footer a:hover { color:var(--gold); }
 
   <!-- CONFERENCES -->
   <section id="conferences" class="section section-alt fi">
-    <div class="sec-label">Presentations</div>
-    <h2 class="sec-title">Conference <em>Presentations</em></h2>
-    <div class="pub-list">
+    <div class="sec-label">Academic &amp; Professional Events</div>
+    <h2 class="sec-title">Conference <em>Activities</em></h2>
 
-      <div class="pub-item fi">
-        <div class="pub-num">C1</div>
-        <div class="pub-content">
-          <div class="pub-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
-          <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
-          <div class="pub-venue"><span class="pub-venue-name">Nebraska APA Chapter Conference</span> <span class="pub-year">· Mar. 2025</span></div>
+    <!-- Tab buttons -->
+    <div class="conf-tabs">
+      <button class="conf-tab active" data-tab="acsp">ACSP 2024 · Presenter</button>
+      <button class="conf-tab" data-tab="npza">NPZA 2025 · Presenter</button>
+      <button class="conf-tab" data-tab="trb">TRB 2025 · Attendee</button>
+      <button class="conf-tab" data-tab="npc">NPC Denver 2025 · Attendee</button>
+    </div>
+
+    <!-- ACSP — PRESENTER -->
+    <div class="conf-panel active" id="tab-acsp">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="ACSP_Conference.jpg" alt="ACSP Annual Conference Seattle 2024" class="conf-img conf-img-main" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">ACSP Annual Conference · Seattle, WA</div>
+          <h3 class="conf-event-title">Association of Collegiate Schools of Planning</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> November 2024</p>
+          <div class="conf-badge conf-badge-presenter"><i class="fas fa-microphone"></i> Paper Presenter</div>
+          <p class="conf-event-desc">Presented research on transportation barriers for those seeking low vision rehabilitation centers in Nebraska. Attended as a recipient of the ACSP Graduate Student Travel Award.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Presented Paper</div>
+            <div class="conf-paper-title">Addressing Transportation Barriers for Those Seeking Low Vision Rehabilitation Centers in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NPZA — PRESENTER -->
+    <div class="conf-panel" id="tab-npza">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="NPZA_Conference.jpg" alt="Nebraska Planning Conference NPZA 2025" class="conf-img conf-img-main" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">Nebraska Planning Conference · Kearney, NE</div>
+          <h3 class="conf-event-title">NPZA — Nebraska Planning &amp; Zoning Association</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> March 2025</p>
+          <div class="conf-badge conf-badge-presenter"><i class="fas fa-microphone"></i> Paper Presenter</div>
+          <p class="conf-event-desc">Presented research on transportation barriers for those seeking low vision rehabilitation centers in Nebraska. Received the Student Scholarship Award for Outstanding Achievement from the Nebraska APA Chapter.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Presented Paper</div>
+            <div class="conf-paper-title">Addressing Transportation Barriers for Those Seeking Low Vision Rehabilitation Centers in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRB — ATTENDEE -->
+    <div class="conf-panel" id="tab-trb">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="TRB_Conference.jpg" alt="TRB Annual Conference 2025 Washington D.C." class="conf-img conf-img-main" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">TRB Annual Meeting · Washington D.C.</div>
+          <h3 class="conf-event-title">Transportation Research Board Annual Meeting</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> January 2025</p>
+          <div class="conf-badge conf-badge-attendee"><i class="fas fa-user"></i> Conference Attendee</div>
+          <p class="conf-event-desc">Attended talks, workshops, and sessions at the TRB Annual Meeting in Washington D.C. Participated as a recipient of the Graduate Student Travel Award and the Nebraska Transportation Center Award.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Awards</div>
+            <div class="conf-paper-title">Graduate Student Travel Award · Nebraska Transportation Center Award</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NPC Denver — ATTENDEE -->
+    <div class="conf-panel" id="tab-npc">
+      <div class="conf-layout">
+        <div class="conf-photos">
+          <img src="NPC_Conference.jpg" alt="APA National Planning Conference Denver 2025" class="conf-img conf-img-main" />
+        </div>
+        <div class="conf-info">
+          <div class="conf-event-label">APA National Planning Conference · Denver, CO</div>
+          <h3 class="conf-event-title">American Planning Association — NPC25</h3>
+          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> 2025</p>
+          <div class="conf-badge conf-badge-attendee"><i class="fas fa-user"></i> Conference Attendee</div>
+          <p class="conf-event-desc">Attended talks, city tours, and planning workshops at the APA National Planning Conference in Denver. Attended as a recipient of the APA Student Travel Award.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Award</div>
+            <div class="conf-paper-title">APA Student Travel Award · Nebraska APA Student Scholarship for Outstanding Achievement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All presentations list -->
+    <div style="margin-top:3rem;">
+      <div class="sec-label" style="margin-bottom:1rem;">Presentations Only</div>
+      <div class="pub-list">
+        <div class="pub-item fi">
+          <div class="pub-num">C1</div>
+          <div class="pub-content">
+            <div class="pub-title">Addressing Transportation Barriers for Those Seeking Low Vision Rehabilitation Centers in Nebraska</div>
+            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+            <div class="pub-venue"><span class="pub-venue-name">NPZA — Nebraska Planning Conference</span> <span class="pub-year">· Mar. 2025 · Kearney, NE</span></div>
+          </div>
+        </div>
+        <div class="pub-item fi">
+          <div class="pub-num">C2</div>
+          <div class="pub-content">
+            <div class="pub-title">Addressing Transportation Barriers for Those Seeking Low Vision Rehabilitation Centers in Nebraska</div>
+            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
+            <div class="pub-venue"><span class="pub-venue-name">ACSP Annual Conference</span> <span class="pub-year">· Nov. 2024 · Seattle, WA</span></div>
+          </div>
+        </div>
+        <div class="pub-item fi">
+          <div class="pub-num">C3</div>
+          <div class="pub-content">
+            <div class="pub-title">Understanding and Addressing Transportation Barriers to Low Vision Care in Nebraska</div>
+            <div class="pub-authors">Cochran, A.L., <strong>Esmaely, A.</strong>, Nelson-Forcade, C., &amp; Choi, I.</div>
+            <div class="pub-venue"><span class="pub-venue-name">UNL Transportation Engineering Seminar Series</span> <span class="pub-year">· Oct. 2024 · Lincoln, NE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES: Graduation & Thesis Defense -->
+  <section id="milestones" class="section fi">
+    <div class="sec-label">Academic Milestones</div>
+    <h2 class="sec-title">Graduation &amp; <em>Thesis Defense</em></h2>
+
+    <div class="milestone-grid">
+
+      <!-- Graduation -->
+      <div class="milestone-card fi fi-delay-1">
+        <div class="milestone-photo-wrap">
+          <img src="Graduation_1.jpg" alt="Graduation UNL December 2025" class="milestone-photo" />
+        </div>
+        <div class="milestone-info">
+          <div class="conf-event-label">University of Nebraska–Lincoln</div>
+          <h3 class="conf-event-title">M.Sc. Graduation</h3>
+          <p class="conf-event-date"><i class="fas fa-graduation-cap"></i> December 2025</p>
+          <p class="conf-event-desc">Graduated with a Master of Science in Community and Regional Planning from the University of Nebraska–Lincoln.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Degree</div>
+            <div class="conf-paper-title">M.Sc. Community and Regional Planning</div>
+            <div class="conf-paper-authors">University of Nebraska–Lincoln · Advisor: Dr. Abigail Cochran</div>
+          </div>
         </div>
       </div>
 
-      <div class="pub-item fi">
-        <div class="pub-num">C2</div>
-        <div class="pub-content">
-          <div class="pub-title">Addressing Transportation Barriers to Low Vision Care</div>
-          <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
-          <div class="pub-venue"><span class="pub-venue-name">ACSP Annual Conference</span> <span class="pub-year">· Nov. 2024 · Seattle, WA</span></div>
+      <!-- Thesis Defense -->
+      <div class="milestone-card fi fi-delay-2">
+        <div class="milestone-photo-wrap">
+          <img src="Thesis_Defense_UNL.jpg" alt="Thesis Defense UNL December 2025" class="milestone-photo" />
+        </div>
+        <div class="milestone-info">
+          <div class="conf-event-label">University of Nebraska–Lincoln · December 2025</div>
+          <h3 class="conf-event-title">Master's Thesis Defense</h3>
+          <p class="conf-event-date"><i class="fas fa-chalkboard-teacher"></i> December 2025</p>
+          <p class="conf-event-desc">Successfully defended master's thesis on addressing transportation barriers for vulnerable populations in Nebraska, under the supervision of Dr. Abigail Cochran.</p>
+          <div class="conf-paper">
+            <div class="conf-paper-label">Thesis Title</div>
+            <div class="conf-paper-title">Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska</div>
+            <div class="conf-paper-authors">Esmaely, A. · UNL Digital Commons, 2025</div>
+          </div>
         </div>
       </div>
 
-      <div class="pub-item fi">
-        <div class="pub-num">C3</div>
-        <div class="pub-content">
-          <div class="pub-title">Understanding and Addressing Transportation Barriers to Low Vision Care in Nebraska</div>
-          <div class="pub-authors">Cochran, A.L., <strong>Esmaely, A.</strong>, Nelson-Forcade, C., &amp; Choi, I.</div>
+    </div>
+  </section>
+
+  <!-- RESEARCH PROJECTS -->
+  <section id="research" class="section section-alt fi">
+    <div class="sec-label">Selected Work</div>
+    <h2 class="sec-title">Research <em>Projects</em></h2>
+    <div class="projects-grid">
+
+      <div class="proj-card fi fi-delay-1">
+        <div class="proj-tag">MATC-TSE · U.S. DOT</div>
+        <h3>Transportation Barriers to Low Vision Care</h3>
+        <ul class="proj-bullets">
+          <li>Analyzed qualitative interview data from individuals with low vision; contributed to manuscript preparation.</li>
+          <li>Conducted in-depth interviews with healthcare providers; performed thematic analysis for a separate manuscript.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card fi fi-delay-2">
+        <div class="proj-tag">SENDD · Infrastructure Investment and Jobs Act</div>
+        <h3>Telehealth &amp; Transportation Barriers in Rural Nebraska</h3>
+        <ul class="proj-bullets">
+          <li>Independently designed study and conducted interviews with rural residents and healthcare providers.</li>
+          <li>Analyzed qualitative data on broadband-enabled telehealth and transportation accessibility.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card fi fi-delay-1">
+        <div class="proj-tag">SENDD · Nebraska Dept. of Economic Development</div>
+        <h3>Southeast Nebraska Infrastructure Inventory</h3>
+        <ul class="proj-bullets">
+          <li>Co-designed a survey targeting city clerks and water operators across 15 counties.</li>
+          <li>Participated in Evaluation &amp; Selection Committee for Regional Planning Consultant RFP.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card fi fi-delay-2 proj-card-photo">
+        <div class="proj-tag">UNL MCRP Studio</div>
+        <h3>City of Ogallala Comprehensive Plan Update</h3>
+        <div class="proj-photo-grid proj-photo-grid-1">
+          <img src="Ogallala.jpg" alt="City of Ogallala Comprehensive Plan" class="proj-photo" />
+        </div>
+        <ul class="proj-bullets">
+          <li>Led transportation section: background research, data collection, GIS mapping, analysis, and recommendations.</li>
+          <li>Coordinated community surveys, stakeholder interviews, and public open house at City Hall.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- dummy closing for old conferences section search anchor -->
+  <span id="_conf_end"></span>
           <div class="pub-venue"><span class="pub-venue-name">UNL Transportation Engineering Seminar Series</span> <span class="pub-year">· Oct. 2024 · Lincoln, NE</span></div>
         </div>
       </div>
@@ -929,125 +1158,6 @@ footer a:hover { color:var(--gold); }
       </div>
     </div>
 
-    <!-- Nebraska APA -->
-    <div class="conf-panel" id="tab-nebapa">
-      <div class="conf-layout">
-        <div class="conf-photos conf-photos-placeholder">
-          <div class="conf-no-photo"><i class="fas fa-image"></i><span>Photo coming soon</span></div>
-        </div>
-        <div class="conf-info">
-          <div class="conf-event-label">Nebraska APA Chapter Conference · Kearney, NE</div>
-          <h3 class="conf-event-title">Nebraska Chapter — American Planning Association Conference</h3>
-          <p class="conf-event-date"><i class="fas fa-calendar-alt"></i> March 2025</p>
-          <p class="conf-event-desc">Presented research on transportation barriers to low vision care among individuals with visual impairments in Nebraska. Received the Student Scholarship Award for Outstanding Achievement from the Nebraska APA Chapter.</p>
-          <div class="conf-paper">
-            <div class="conf-paper-label">Presentation</div>
-            <div class="conf-paper-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
-            <div class="conf-paper-authors">Esmaely, A., Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Graduation -->
-    <div class="conf-panel" id="tab-graduation">
-      <div class="conf-layout">
-        <div class="conf-photos">
-          <img src="Graduation.jpg" alt="Graduation UNL" class="conf-img conf-img-main" />
-        </div>
-        <div class="conf-info">
-          <div class="conf-event-label">University of Nebraska–Lincoln</div>
-          <h3 class="conf-event-title">M.Sc. Graduation — Community &amp; Regional Planning</h3>
-          <p class="conf-event-date"><i class="fas fa-graduation-cap"></i> December 2025</p>
-          <p class="conf-event-desc">Graduated with a Master of Science in Community and Regional Planning from the University of Nebraska–Lincoln. Thesis: <em>Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska.</em> Advisor: Dr. Abigail Cochran.</p>
-          <div class="conf-paper">
-            <div class="conf-paper-label">Thesis</div>
-            <div class="conf-paper-title">Transportation Practitioners' Reflections on Addressing Transportation Barriers for Vulnerable Populations in Nebraska</div>
-            <div class="conf-paper-authors">Esmaely, A. · UNL Digital Commons, 2025</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Existing presentation list -->
-    <div style="margin-top:3rem;">
-      <div class="sec-label" style="margin-bottom:1rem;">All Presentations</div>
-      <div class="pub-list">
-        <div class="pub-item fi">
-          <div class="pub-num">C1</div>
-          <div class="pub-content">
-            <div class="pub-title">Addressing Transportation Barriers to Low Vision Care Among Individuals with Visual Impairments in Nebraska</div>
-            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
-            <div class="pub-venue"><span class="pub-venue-name">Nebraska APA Chapter Conference</span> <span class="pub-year">· Mar. 2025</span></div>
-          </div>
-        </div>
-        <div class="pub-item fi">
-          <div class="pub-num">C2</div>
-          <div class="pub-content">
-            <div class="pub-title">Addressing Transportation Barriers to Low Vision Care</div>
-            <div class="pub-authors"><strong>Esmaely, A.</strong>, Nelson-Forcade, C., Shepherd, J.D., &amp; Cochran, A.L.</div>
-            <div class="pub-venue"><span class="pub-venue-name">ACSP Annual Conference</span> <span class="pub-year">· Nov. 2024 · Seattle, WA</span></div>
-          </div>
-        </div>
-        <div class="pub-item fi">
-          <div class="pub-num">C3</div>
-          <div class="pub-content">
-            <div class="pub-title">Understanding and Addressing Transportation Barriers to Low Vision Care in Nebraska</div>
-            <div class="pub-authors">Cochran, A.L., <strong>Esmaely, A.</strong>, Nelson-Forcade, C., &amp; Choi, I.</div>
-            <div class="pub-venue"><span class="pub-venue-name">UNL Transportation Engineering Seminar Series</span> <span class="pub-year">· Oct. 2024 · Lincoln, NE</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH PROJECTS -->
-  <section id="research" class="section fi">
-    <div class="sec-label">Selected Work</div>
-    <h2 class="sec-title">Research <em>Projects</em></h2>
-    <div class="projects-grid">
-
-      <div class="proj-card fi fi-delay-1">
-        <div class="proj-tag">MATC-TSE · U.S. DOT</div>
-        <h3>Transportation Barriers to Low Vision Care</h3>
-        <ul class="proj-bullets">
-          <li>Analyzed qualitative interview data from individuals with low vision; contributed to manuscript preparation.</li>
-          <li>Conducted in-depth interviews with healthcare providers; performed thematic analysis for a separate manuscript.</li>
-        </ul>
-      </div>
-
-      <div class="proj-card fi fi-delay-2">
-        <div class="proj-tag">SENDD · Infrastructure Investment and Jobs Act</div>
-        <h3>Telehealth &amp; Transportation Barriers in Rural Nebraska</h3>
-        <ul class="proj-bullets">
-          <li>Independently designed study and conducted interviews with rural residents and healthcare providers.</li>
-          <li>Analyzed qualitative data on broadband-enabled telehealth and transportation accessibility.</li>
-        </ul>
-      </div>
-
-      <div class="proj-card fi fi-delay-1">
-        <div class="proj-tag">SENDD · Nebraska Dept. of Economic Development</div>
-        <h3>Southeast Nebraska Infrastructure Inventory</h3>
-        <ul class="proj-bullets">
-          <li>Co-designed a survey targeting city clerks and water operators across 15 counties.</li>
-          <li>Participated in Evaluation &amp; Selection Committee for Regional Planning Consultant RFP.</li>
-        </ul>
-      </div>
-
-      <div class="proj-card fi fi-delay-2 proj-card-photo">
-        <div class="proj-tag">UNL MCRP Studio</div>
-        <h3>City of Ogallala Comprehensive Plan Update</h3>
-        <div class="proj-photo-grid proj-photo-grid-1">
-          <img src="Ogallala.jpg" alt="Ogallala project" class="proj-photo" />
-        </div>
-        <ul class="proj-bullets">
-          <li>Led transportation section: background research, data collection, GIS mapping, analysis, and recommendations.</li>
-          <li>Coordinated community surveys, stakeholder interviews, and public open house at City Hall.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
 
   <!-- EXPERIENCE -->
   <section id="experience" class="section section-alt fi">
@@ -1239,7 +1349,7 @@ const lbImg = lb.querySelector('img');
 lb.querySelector('.lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
 lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') lb.classList.remove('open'); });
-document.querySelectorAll('.conf-img, .proj-photo').forEach(img => {
+document.querySelectorAll('.conf-img, .proj-photo, .milestone-photo').forEach(img => {
   img.style.cursor = 'zoom-in';
   img.addEventListener('click', () => {
     lbImg.src = img.src;
