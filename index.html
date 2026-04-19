@@ -590,13 +590,11 @@ footer a:hover { color:var(--gold); }
 }
 .milestone-card:hover .milestone-photo { transform: scale(1.03); }
 .milestone-info { padding: 1.6rem; }
-.fi { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
-.fi.vis { opacity:1; transform:translateY(0); }
-.fi-delay-1 { transition-delay:.08s; }
-.fi-delay-2 { transition-delay:.16s; }
-.fi-delay-3 { transition-delay:.24s; }
-/* Ensure sections visible if JS fails */
-section { opacity:1; }
+.fi { opacity:1; transform:none; }
+.fi.vis { opacity:1; transform:none; }
+.fi-delay-1 { }
+.fi-delay-2 { }
+.fi-delay-3 { }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media(max-width:900px){
@@ -1201,7 +1199,7 @@ const scrollObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if(e.isIntersecting){
       navLinks.forEach(a => a.classList.remove('active'));
-      const link = document.querySelector(\`.nav-link[href="#${e.target.id}"]\`);
+      const link = document.querySelector('.nav-link[href="#' + e.target.id + '"]');
       if(link) link.classList.add('active');
     }
   });
